@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#0f1a33"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="LSA SIO"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="apple-touch-icon" href="data:image/jpeg;base64,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"><script src="assets/app-nav.js"></script>
+<title>3-Méthode CR pas à pas : "Less stress, more energy"… · BTS, LSA Toolbox</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/sio-favicon-32.png?v=1">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+:root{
+  --navy:#1a2744;--navy-deep:#0f1a33;--navy-mid:#243260;
+  --blue:#2d5fa6;--blue-deep:#21477d;--blue-light:#4a7bc8;
+  --accent:#f5b60f;--accent-deep:#c98f00;
+  --green:#2a7a4b;--red:#b5302b;--purple:#6b4ea0;
+  --bg:#f5f3ef;--surface:#ffffff;--border:#ddd5c5;
+  --text:#2a2520;--muted:#7a7060;
+  --shadow:0 2px 14px rgba(26,39,68,.10);
+  --shadow-lg:0 14px 40px rgba(26,39,68,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Quicksand',Georgia,serif;background:var(--bg);color:var(--text);
+  line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;}
+
+/* ── TOP BAR ── */
+.topbar{background:var(--navy-deep);color:rgba(255,255,255,.7);font-size:12.5px;}
+.topbar-inner{max-width:1080px;margin:0 auto;padding:9px 28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
+.topbar .place{display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.12em;font-size:11px;}
+.topbar .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);}
+.topbar a.back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,.78);text-decoration:none;border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:4px 13px;transition:all .2s;font-size:11.5px;}
+.topbar a.back:hover{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(200,168,75,.6);}
+
+/* ── HEADER ── */
+.head{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 60%,var(--blue) 135%);border-bottom:3px solid var(--accent);}
+.head::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 88% -10%,rgba(74,123,200,.4),transparent 55%);}
+.head-inner{position:relative;z-index:2;max-width:1080px;margin:0 auto;padding:40px 28px 36px;}
+.breadcrumb{display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-size:12px;letter-spacing:.04em;color:rgba(255,255,255,.9);margin-bottom:18px;}
+.breadcrumb a{color:rgba(255,255,255,.8);text-decoration:none;border-bottom:1px solid transparent;transition:.2s;}
+.breadcrumb a:hover{color:#fff;border-bottom-color:var(--accent);}
+.breadcrumb .sep{opacity:.5;}
+.breadcrumb .tag{background:var(--blue);color:#fff;border-radius:5px;padding:2px 9px;white-space:nowrap;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
+.head .eyebrow{color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;display:block;margin-bottom:10px;}
+.head h1{font-family:'Quicksand',serif;color:#fff;font-weight:700;font-size:clamp(2rem,4.4vw,3rem);line-height:1.06;text-wrap:balance;}
+.head h1 em{font-style:normal;color:var(--accent);}
+.head .sub{color:rgba(255,255,255,.82);font-size:clamp(15px,2vw,18px);font-style:italic;margin-top:14px;max-width:640px;}
+
+/* ── LAYOUT ── */
+.wrap{max-width:1080px;margin:0 auto;padding:40px 28px 30px;}
+
+/* ── STEP NAV ── */
+.stepnav{position:sticky;top:0;z-index:30;background:rgba(245,243,239,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
+.stepnav-inner{max-width:1080px;margin:0 auto;padding:11px 28px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.stepnav .lbl{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:4px;}
+.stepnav a{text-decoration:none;font-size:13px;font-weight:600;color:var(--navy);background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:5px 13px;transition:all .18s;display:inline-flex;align-items:center;gap:7px;}
+.stepnav a:hover{border-color:var(--blue);color:var(--blue-deep);}
+.stepnav a .n{font-variant-numeric:tabular-nums;color:var(--blue);font-weight:700;}
+.stepnav a.done{border-color:var(--green);}
+.stepnav a.done .n{color:var(--green);}
+
+/* ── INTRO ── */
+.intro{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:12px;box-shadow:var(--shadow);padding:24px 28px;margin-bottom:14px;}
+.intro h2{font-family:'Quicksand',serif;color:var(--navy);font-weight:600;font-size:1.35rem;margin-bottom:6px;}
+.intro p{margin:8px 0;color:var(--text);}
+.intro .consigne{margin-top:14px;background:#faf6ec;border:1px solid var(--accent);border-radius:10px;padding:14px 18px;font-size:16px;}
+.intro .consigne b{color:var(--navy);}
+.meta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px;}
+.meta-chip{display:inline-flex;align-items:center;gap:9px;background:#fcfbf8;border:1px solid var(--border);border-radius:10px;padding:9px 15px;font-size:14px;}
+.meta-chip b{color:var(--navy);font-variant-numeric:tabular-nums;font-size:18px;font-family:'Quicksand',serif;}
+.meta-chip span{color:var(--muted);font-size:12px;line-height:1.25;}
+
+/* ── SOURCE TEXT PANEL ── */
+.source{background:var(--surface);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);margin-bottom:26px;overflow:hidden;}
+.source-head{background:var(--navy);color:#fff;padding:14px 22px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;}
+.source-head .t{font-weight:700;letter-spacing:.04em;font-size:14px;display:flex;align-items:center;gap:10px;}
+.source-head .t svg{color:var(--accent);}
+.source-head .src{font-size:11.5px;color:rgba(255,255,255,.6);font-style:italic;}
+.legend{display:flex;flex-wrap:wrap;gap:8px;padding:12px 16px 14px;border:1px solid var(--border);border-radius:10px;background:#fcfbf8;margin-top:18px;}
+.legend .lgl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);width:100%;margin-bottom:2px;}
+.hl-btn{cursor:pointer;font-family:inherit;font-size:12.5px;font-weight:600;border:1px solid var(--border);background:#fcfbf8;color:var(--navy);border-radius:18px;padding:5px 13px;display:inline-flex;align-items:center;gap:7px;transition:all .15s;}
+.hl-btn .sw{width:12px;height:12px;border-radius:3px;}
+.hl-btn[aria-pressed="true"]{border-color:currentColor;}
+.hl-btn[data-k="be"]{--cc:#c8a800;}.hl-btn[data-k="num"]{--cc:#c8507a;}
+.hl-btn[data-k="prop"]{--cc:var(--green);}.hl-btn[data-k="conn"]{--cc:var(--purple);}
+.hl-btn[aria-pressed="true"]{color:var(--cc);background:color-mix(in srgb,var(--cc) 9%,#fff);}
+.hl-btn .sw{background:var(--cc);}
+.article{padding:8px 26px 24px;font-size:16.5px;line-height:1.78;}
+.article .title{font-family:'Quicksand',serif;color:var(--navy);font-weight:700;font-size:1.5rem;line-height:1.2;margin:18px 0 4px;}
+.article .standfirst{font-style:italic;color:var(--muted);margin-bottom:14px;}
+.article p{margin:12px 0;text-wrap:pretty;}
+/* highlight marks, invisible until toggled */
+.article mark{background:transparent;color:inherit;padding:0 1px;border-radius:3px;transition:background .15s;}
+.article.show-be .be{background:color-mix(in srgb,#c8a800 28%,#fff);box-shadow:0 0 0 1px #b89600 inset;}
+.article.show-num .num{background:color-mix(in srgb,#c8507a 22%,#fff);box-shadow:0 0 0 1px #c8507a inset;}
+.article.show-prop .prop{background:color-mix(in srgb,var(--green) 24%,#fff);box-shadow:0 0 0 1px var(--green) inset;}
+.article.show-conn .conn{background:color-mix(in srgb,var(--purple) 22%,#fff);box-shadow:0 0 0 1px var(--purple) inset;font-weight:600;}
+
+/* ── STEP CARD ── */
+.step{background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);margin-bottom:24px;overflow:hidden;scroll-margin-top:64px;}
+.step-head{display:flex;align-items:flex-start;gap:16px;padding:22px 26px 6px;}
+.step-num{flex-shrink:0;width:46px;height:46px;border-radius:12px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Quicksand',serif;font-weight:700;font-size:20px;box-shadow:0 4px 12px rgba(45,95,166,.3);}
+.step-head .ht{flex:1;min-width:0;}
+.step-head h2{font-family:'Quicksand',serif;color:var(--navy);font-weight:600;font-size:1.5rem;line-height:1.12;}
+.step-head .obj{color:var(--muted);font-size:14.5px;margin-top:4px;}
+.step-body{padding:6px 26px 24px;}
+
+/* ── HELP / METHOD ── */
+details.aide{margin:6px 0 18px;border:1px solid var(--border);border-radius:10px;background:#fcfbf8;overflow:hidden;}
+details.aide>summary{cursor:pointer;list-style:none;padding:11px 18px;font-size:13.5px;font-weight:700;letter-spacing:.02em;color:var(--blue-deep);display:flex;align-items:center;gap:10px;}
+details.aide>summary::-webkit-details-marker{display:none;}
+details.aide>summary .ic{transition:transform .25s;}
+details.aide[open]>summary .ic{transform:rotate(90deg);}
+details.aide .ai{padding:2px 18px 16px;font-size:15px;color:var(--text);border-top:1px solid var(--border);margin-top:0;padding-top:14px;}
+details.aide .ai ul{margin:8px 0 4px 4px;padding-left:18px;}
+details.aide .ai li{margin:5px 0;}
+details.aide .ai code{background:#efe9da;border-radius:4px;padding:1px 6px;font-size:13px;font-family:ui-monospace,Menlo,monospace;color:var(--navy);}
+
+details.corr{margin:14px 0 4px;border:1px solid var(--green);border-radius:10px;background:#f1f7f2;overflow:hidden;}
+details.corr>summary{cursor:pointer;list-style:none;padding:11px 18px;font-size:13.5px;font-weight:700;color:var(--green);display:flex;align-items:center;gap:10px;}
+details.corr>summary::-webkit-details-marker{display:none;}
+details.corr>summary .ic{transition:transform .25s;}
+details.corr[open]>summary .ic{transform:rotate(90deg);}
+details.corr .ci{padding:4px 18px 16px;font-size:15px;border-top:1px solid color-mix(in srgb,var(--green) 35%,#fff);padding-top:14px;}
+details.corr .ci ul{margin:6px 0 4px 4px;padding-left:18px;}
+details.corr .ci li{margin:6px 0;}
+.corr-note{font-size:12.5px;color:var(--muted);font-style:italic;margin-top:10px;}
+
+/* ── FIELDS ── */
+.field{margin:16px 0;}
+.field>label{display:block;font-weight:600;color:var(--navy);font-size:15px;margin-bottom:7px;}
+.field .hint{font-weight:400;color:var(--muted);font-size:13px;font-style:italic;}
+textarea,input.line{width:100%;font-family:inherit;font-size:15.5px;color:var(--text);background:#fcfbf8;border:1px solid var(--border);border-radius:9px;padding:12px 14px;line-height:1.6;resize:vertical;transition:border-color .15s,box-shadow .15s;}
+textarea:focus,input.line:focus{outline:none;border-color:var(--blue);background:#fff;box-shadow:0 0 0 3px rgba(45,95,166,.13);}
+textarea.sm{min-height:64px;}
+textarea.md{min-height:120px;}
+textarea.lg{min-height:300px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+
+/* ── PARA NOTES (step 3) ── */
+.para{border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin:12px 0;background:#fcfbf8;}
+.para .pl{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.para-wc{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--muted);margin-top:5px;}
+.para-wc b{font-variant-numeric:tabular-nums;color:var(--navy);}
+
+/* ── TABLE (step 4) ── */
+.cuts{width:100%;border-collapse:collapse;margin-top:10px;font-size:14.5px;}
+.cuts th{background:var(--navy);color:#fff;font-weight:600;font-size:12.5px;letter-spacing:.04em;padding:10px 12px;text-align:left;}
+.cuts th:last-child{width:120px;text-align:center;}
+.cuts td{border:1px solid var(--border);padding:6px;vertical-align:top;}
+.cuts textarea{border:none;background:transparent;border-radius:0;padding:6px 8px;min-height:46px;}
+.cuts textarea:focus{box-shadow:none;background:#fff;}
+.cuts input.line{border:none;background:transparent;text-align:center;padding:6px;}
+
+/* ── COUNTER ── */
+.counter{display:inline-flex;align-items:center;gap:9px;font-size:13.5px;color:var(--muted);background:#fcfbf8;border:1px solid var(--border);border-radius:20px;padding:6px 14px;margin-top:10px;}
+.counter b{font-family:'Quicksand',serif;font-size:17px;font-variant-numeric:tabular-nums;color:var(--navy);}
+.counter.ok{border-color:var(--green);color:var(--green);}
+.counter.ok b{color:var(--green);}
+.counter.over{border-color:var(--red);color:var(--red);}
+.counter.over b{color:var(--red);}
+
+/* ── CHECKLIST (step 6) ── */
+.check{list-style:none;display:flex;flex-direction:column;gap:2px;margin-top:6px;}
+.check li{display:flex;align-items:flex-start;gap:12px;padding:11px 14px;border:1px solid var(--border);border-radius:9px;background:#fcfbf8;transition:all .15s;}
+.check li:has(input:checked){border-color:var(--green);background:#f1f7f2;}
+.check input{flex-shrink:0;width:21px;height:21px;margin-top:2px;accent-color:var(--green);cursor:pointer;}
+.check label{flex:1;cursor:pointer;font-size:15px;color:var(--text);}
+.check li:has(input:checked) label{color:var(--green);}
+.check-foot{margin-top:14px;font-size:14px;color:var(--muted);}
+.check-foot b{color:var(--navy);font-variant-numeric:tabular-nums;}
+
+/* ── ACTIONS ── */
+.toolbar{display:flex;flex-wrap:wrap;gap:11px;align-items:center;margin:6px 0 22px;}
+.btn{font-family:inherit;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:14.5px;border-radius:26px;padding:10px 20px;transition:all .18s;border:1px solid var(--border);background:var(--surface);color:var(--navy);box-shadow:var(--shadow);}
+.btn:hover{border-color:var(--accent);color:var(--accent-deep);transform:translateY(-2px);box-shadow:var(--shadow-lg);}
+.btn.primary{background:var(--navy);color:#fff;border-color:var(--navy);}
+.btn.primary:hover{background:var(--navy-deep);color:#fff;border-color:var(--navy-deep);}
+.btn.ghost{box-shadow:none;}
+.btn.danger:hover{border-color:var(--red);color:var(--red);}
+.save-note{font-size:12.5px;color:var(--muted);font-style:italic;display:inline-flex;align-items:center;gap:7px;}
+.save-note .pulse{width:8px;height:8px;border-radius:50%;background:var(--green);}
+
+.actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:40px 0 6px;}
+
+/* ── FOOTER ── */
+footer{background:var(--navy-deep);color:rgba(255,255,255,.62);margin-top:42px;border-top:3px solid var(--accent);}
+.foot-inner{max-width:1080px;margin:0 auto;padding:30px 28px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:13px;}
+.foot-brand{display:flex;align-items:center;gap:13px;}
+.foot-brand img{width:38px;height:38px;border-radius:9px;}
+.foot-brand strong{color:#fff;font-family:'Quicksand',serif;font-weight:600;font-size:15px;display:block;}
+.foot-brand span{font-size:12px;}
+.foot-links{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+.foot-links a{transition:color .2s;border-bottom:1px solid transparent;text-decoration:none;}
+.foot-links a:hover{color:var(--accent);border-bottom-color:var(--accent);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:720px){
+  body{font-size:16px;}
+  .wrap{padding:30px 18px 24px;}
+  .grid2,.grid3{grid-template-columns:1fr;}
+  .step-head{padding:18px 18px 4px;}
+  .step-body{padding:6px 18px 20px;}
+  .source-head,.legend,.article{padding-left:18px;padding-right:18px;}
+  .stepnav-inner{padding:10px 18px;overflow-x:auto;flex-wrap:nowrap;}
+  .foot-inner{flex-direction:column;align-items:flex-start;}
+}
+
+/* ── PRINT ── */
+@media print{
+  .topbar,.stepnav,.toolbar,.actions,footer,.legend,.save-note{display:none !important;}
+  body{background:#fff;color:#000;font-size:11pt;line-height:1.45;}
+  .head{background:#fff !important;border-bottom:2px solid #000;}
+  .head::before{display:none;}
+  .head .eyebrow{color:#8a6d1f;}
+  .head h1,.head h1 em{color:#000;}
+  .head .sub,.breadcrumb{color:#333;}
+  .head-inner{padding:6px 0;}
+  .wrap{padding:6px 0;max-width:none;}
+  .step,.source,.intro{box-shadow:none;border:1px solid #999;break-inside:avoid;page-break-inside:avoid;}
+  .step-num{background:#000 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .source-head,.cuts th{background:#000 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  details.aide,details.corr{border:1px solid #999;}
+  details.aide,details.corr{break-inside:avoid;}
+  textarea,input.line{border:1px solid #aaa;background:#fff;min-height:auto;}
+  .article mark{background:transparent !important;box-shadow:none !important;}
+  a{color:#000;text-decoration:none;}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+}
+</style>
+<style>.visit-count{margin-top:8px}.visit-count img{height:16px;vertical-align:middle}</style><style id="lsa-h1-or">h1,h1 em,h1 span{color:#f5b60f!important}</style></head>
+<body>
+
+<!-- ═══════════ TOP BAR ═══════════ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="place"><span class="dot"></span>Lycée Sidoine Apollinaire · Clermont-Ferrand</span>
+    <a class="back" href="index.html">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      Retour à l'accueil
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header class="head">
+  <div class="head-inner">
+    <nav class="breadcrumb">
+      <a href="index.html">Accueil</a><span class="sep">›</span>
+      <span class="tag">BTS</span>
+      <span class="sep">›</span><span>Méthodologie</span>
+      <span class="sep">›</span><span>Le compte rendu</span>
+    </nav>
+    <span class="eyebrow">Méthode M3 · Anglais, épreuve de compte rendu</span>
+    <h1>3-Méthode CR pas à pas : <em>"Less stress, more energy"</em>…</h1>
+    <p class="sub">Entraînez-vous en autonomie à rédiger, en français, le compte rendu d'un article anglais. Six étapes, des aides à déplier et une correction à comparer à la fin.</p>
+  </div>
+</header>
+
+<!-- ═══════════ STEP NAV ═══════════ -->
+<nav class="stepnav" id="stepnav">
+  <div class="stepnav-inner">
+    <span class="lbl">Parcours</span>
+    <a href="#etape1"><span class="n">1</span> Titre</a>
+    <a href="#etape2"><span class="n">2</span> Repérage</a>
+    <a href="#etape3"><span class="n">3</span> Brouillon</a>
+    <a href="#etape4"><span class="n">4</span> Alléger</a>
+    <a href="#etape5"><span class="n">5</span> Rédiger</a>
+
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- ── TOOLBAR ── -->
+  <div class="toolbar">
+    <button class="btn primary" onclick="window.print()">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+      Imprimer la fiche
+    </button>
+    <button class="btn danger ghost" id="resetBtn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+      Tout effacer
+    </button>
+    <span class="save-note"><span class="pulse"></span> Vos réponses sont enregistrées automatiquement dans ce navigateur.</span>
+  </div>
+
+  <!-- ── INTRO ── -->
+  <section class="intro">
+    <h2>Comment ça marche&nbsp;?</h2>
+    <p>Le <b>compte rendu</b> consiste à restituer fidèlement, <b>en français</b> et de façon condensée, les idées essentielles d'un texte en anglais, sans donner votre avis. Avancez étape par étape&nbsp;: chaque étape propose une <b>aide méthode</b> à déplier et des zones de réponse. Une fois votre travail rédigé, comparez-le à la <b>correction</b> proposée à chaque étape.</p>
+    <div class="consigne">
+      <b>Consigne&nbsp;:</b> Rédigez en français, en <b>environ 200 mots (± 10&nbsp;%)</b>, le compte rendu de l'article ci-dessous <i>«&nbsp;Less stress, more energy: what four-day weeks are really like&nbsp;»</i>. Restituez les idées principales de façon neutre et organisée.
+    </div>
+    <div class="meta-row">
+      <span class="meta-chip"><b id="srcWords">,</b><span>mots dans<br>le texte source</span></span>
+      <span class="meta-chip"><b>200</b><span>mots visés<br>(± 10&nbsp;% → 180–220)</span></span>
+      <span class="meta-chip"><b>6</b><span>étapes<br>de méthode</span></span>
+    </div>
+  </section>
+
+  <!-- ── SOURCE TEXT ── -->
+  <section class="source">
+    <div class="source-head">
+      <span class="t">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Le texte à comprendre
+      </span>
+      <span class="src">The Sunday Times, adapté (article de presse)</span>
+    </div>
+    <article class="article" id="article">
+      <p class="title">“Less stress, more energy”: what four-day weeks are really like</p>
+      <p class="standfirst">As Labour mulls giving employees more flexibility, how would productivity, and stress levels, be affected by the end of the traditional working week?</p>
+
+      <p>It was <mark class="num">11am on Friday</mark> when <mark class="prop">The Sunday Times</mark> phoned <mark class="prop">Mark Mullen</mark>, <mark class="be">chief executive</mark> of <mark class="prop">Atom Bank</mark>. “Hello?” he answered, sounding flustered, a loud cacophony in the background. “Sorry, I'm just in the supermarket, I can't hear you.”</p>
+
+      <p><mark class="num">Three years ago</mark>, on his orders, Atom Bank's <mark class="num">550 staff</mark> went from <mark class="num">five days a week to four</mark>. So, having worked his Monday to Thursday, Mullen was doing the grocery shop. The change, he said, has been a success. “We're <mark class="be">profitable</mark>, still growing, but we do it with a four-day week.”</p>
+
+      <p>As part of the new government's <mark class="be">working rights package</mark>, <mark class="be">employees</mark> in the <mark class="prop">UK</mark> may soon all be given the right to work the Atom way. Under a plan due to go out for consultation in <mark class="num">October</mark>, the <mark class="prop">Department for Business &amp; Trade</mark> will propose a system of <mark class="be">“compressed hours”</mark>, where <mark class="be">full-time staff</mark> can squeeze their <mark class="be">contracted hours</mark> into four days. <mark class="be">Employers</mark> would be legally obliged to allow it.</p>
+
+      <p>The idea is to give employees <mark class="be">flexibility</mark>. That could involve doing fewer days, or working different hours, possibly involving evening work after putting children to bed.</p>
+
+      <p><mark class="conn">But</mark> <mark class="prop">Britain</mark> isn't alone in looking at such a move. <mark class="prop">Belgium</mark> passed similar <mark class="be">legislation</mark> in <mark class="num">2022</mark>, and trials have been running in several other <mark class="prop">European</mark> countries. <mark class="conn">But</mark> how practical is it? And what impact will it have on companies and the economy?</p>
+
+      <p>A wide-ranging <mark class="be">trial</mark> last year, in which <mark class="num">61 companies</mark> went to four days, suggested it was good for employees, who had lower levels of <mark class="be">stress and burnout</mark> and took fewer <mark class="be">sick days</mark>.</p>
+
+      <p><mark class="conn">However</mark>, Mullen stressed that while it worked for a business like Atom, it would not be right for every organisation. “We're kind of <mark class="be">self-service, digitally enabled</mark>, so we don't have a physical distribution service to maintain. That made it easier than if we were running something like a restaurant.”</p>
+
+      <p>And as for the <mark class="be">productivity</mark> of his <mark class="be">workforce</mark>? Atom cut the total contracted hours from <mark class="num">37 to 34 a week</mark>, meaning staff worked slightly longer on those four days. He kept <mark class="be">wages</mark> as they were. “It had no impact on [total] productivity at all.”</p>
+
+      <p><mark class="conn">On a per-hour-worked basis, though</mark>, Atom staff did become more productive. <mark class="prop">Professor Bart van Ark</mark>, managing director of the <mark class="prop">Productivity Institute</mark> at <mark class="prop">Manchester University</mark>, said there was not always the same positive outcome when employees were asked to work longer hours over fewer days, with a risk of <mark class="be">fatigue and concentration lapses</mark>. “After <mark class="num">seven or eight working hours</mark> a day, your productivity is very likely to decline,” he said.</p>
+
+      <p><mark class="prop">Richard Fox</mark>, a partner at <mark class="prop">Keystone Law</mark> specialising in <mark class="be">employment issues</mark>, agreed: “It's not quite as simple as saying a four-day week with compressed hours is less stressful and adds to <mark class="be">work-life balance</mark>… If you work <mark class="num">ten hours four days a week</mark>, you can find yourself being exhausted. For some people, it's better to work more steady hours.”</p>
+
+      <p>“I'm definitely not saying it's right for everyone,” Mullen added. “Some people like a five-day week.”</p>
+
+      <p><mark class="conn">On the other hand</mark>, though, he pointed out that once employees have made the switch to four working days and rearranged their lives around that schedule, they can find it hard to shift back up again to five, perhaps making them unwilling to move to new jobs, good for Atom, but perhaps not for rivals trying to hire new staff.</p>
+
+      <p>After the four-days trial last year, <mark class="num">92 per cent</mark> of the participants decided to make it <mark class="be">permanent</mark>.</p>
+    </article>
+  </section>
+
+  <!-- ══════ ÉTAPE 1 ══════ -->
+  <section class="step" id="etape1">
+    <div class="step-head">
+      <div class="step-num">1</div>
+      <div class="ht">
+        <h2>Anticiper à partir du titre</h2>
+        <p class="obj">Avant même de lire l'article, le titre vous renseigne déjà beaucoup.</p>
+      </div>
+    </div>
+    <div class="step-body">
+      <details class="aide">
+        <summary><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> Aide méthode</summary>
+        <div class="ai">
+          <p>Repérez dans le titre les <b>mots transparents</b> (proches du français) et les <b>mots connus</b>, puis devinez le thème et le <i>Business English</i> probable.</p>
+          <ul>
+            <li><b>Mots transparents&nbsp;:</b> <code>stress</code>, <code>energy</code>, <code>productivity</code>…</li>
+            <li><b>Le thème&nbsp;:</b> de quoi va parler l'article&nbsp;? (ici&nbsp;: l'organisation du temps de travail)</li>
+            <li><b>Business English attendu&nbsp;:</b> du vocabulaire de l'entreprise et du travail (<code>employees</code>, <code>working week</code>…).</li>
+          </ul>
+        </div>
+      </details>
+      <div class="field">
+        <label>a) Quels mots importants du titre comprenez-vous&nbsp;? <span class="hint">(mots transparents ou déjà connus)</span></label>
+        <textarea class="sm" data-save="e1a" placeholder=""></textarea>
+      </div>
+      <div class="field">
+        <label>b) Quel est le thème probable de l'article&nbsp;?</label>
+        <textarea class="sm" data-save="e1b" placeholder="En une phrase…"></textarea>
+      </div>
+      <div class="field">
+        <label>c) Quel Business English vous attendez-vous à trouver&nbsp;?</label>
+        <textarea class="sm" data-save="e1c" placeholder="Listez quelques mots de l'entreprise et du travail que vous pensez rencontrer…"></textarea>
+      </div>
+      <details class="corr">
+        <summary><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> Voir une proposition de correction</summary>
+        <div class="ci">
+          <ul>
+            <li><b>Mots compris&nbsp;:</b> <i>less stress</i> (moins de stress), <i>more energy</i> (plus d'énergie), <i>four-day weeks</i> (les semaines de quatre jours), <i>really like</i> (à quoi cela ressemble vraiment).</li>
+            <li><b>Thème probable&nbsp;:</b> les effets réels de la semaine de quatre jours sur le bien-être et le travail.</li>
+            <li><b>Business English attendu&nbsp;:</b> <i>employees, employers, working week, productivity, work-life balance, company…</i></li>
+          </ul>
+          <p class="corr-note">Il n'y a pas une seule bonne réponse&nbsp;: l'important est d'avoir anticipé le bon thème.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ══════ ÉTAPE 2 ══════ -->
+  <section class="step" id="etape2">
+    <div class="step-head">
+      <div class="step-num">2</div>
+      <div class="ht">
+        <h2>Lecture globale, puis repérage</h2>
+        <p class="obj">Lire une première fois sans bloquer sur les mots inconnus, puis appliquer le code de repérage.</p>
+      </div>
+    </div>
+    <div class="step-body">
+      <div class="legend" id="legend">
+        <span class="lgl">Code de repérage, cliquez pour surligner dans le texte ci-dessus</span>
+        <button class="hl-btn" data-k="be" aria-pressed="false"><span class="sw"></span>Business English</button>
+        <button class="hl-btn" data-k="num" aria-pressed="false"><span class="sw"></span>Chiffres &amp; dates</button>
+        <button class="hl-btn" data-k="prop" aria-pressed="false"><span class="sw"></span>Noms propres</button>
+        <button class="hl-btn" data-k="conn" aria-pressed="false"><span class="sw"></span>Connecteurs logiques</button>
+      </div>
+      <details class="aide">
+        <summary><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> Aide méthode</summary>
+        <div class="ai">
+          <p>Première lecture&nbsp;: ne vous arrêtez pas sur chaque mot inconnu. Cherchez seulement le <b>sujet</b>, les <b>acteurs</b> et l'<b>idée générale</b>. Relisez ensuite en appliquant le <b>code de repérage</b> (boutons de couleur sur le texte plus haut)&nbsp;:</p>
+          <ul>
+            <li><b>BE</b>, le <i>Business English</i> (vocabulaire de l'entreprise et du travail)&nbsp;;</li>
+            <li><b>Chiffres</b>, dates, données chiffrées, évolutions, comparaisons&nbsp;;</li>
+            <li><b>Noms propres</b>, personnes, entreprises, lieux, institutions&nbsp;;</li>
+            <li><b>Connecteurs logiques</b>, <i>but, however, on the other hand…</i> qui signalent l'organisation des idées.</li>
+          </ul>
+          <p>Astuce&nbsp;: activez les surlignages ci-dessus pour vérifier vos repérages.</p>
+        </div>
+      </details>
+      <div class="field">
+        <label>a) Type de document, source et date</label>
+        <textarea class="sm" data-save="e2a" placeholder="Nature du document, d'où il vient, quand il a été publié…"></textarea>
+      </div>
+      <div class="field">
+        <label>b) Sujet général du document <span class="hint">(en une ou deux phrases)</span></label>
+        <textarea class="sm" data-save="e2b" placeholder="De quoi parle l'article dans son ensemble&nbsp;?"></textarea>
+      </div>
+      <div class="field">
+        <label>c) Acteurs principaux <span class="hint">(qui parle, qui est cité&nbsp;?)</span></label>
+        <textarea class="sm" data-save="e2c" placeholder="Personnes, entreprises, institutions citées…"></textarea>
+      </div>
+      <details class="corr">
+        <summary><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> Voir une proposition de correction</summary>
+        <div class="ci">
+          <ul>
+            <li><b>Type / source&nbsp;:</b> un article de presse du <i>Sunday Times</i> (journal britannique) consacré à un fait de société économique.</li>
+            <li><b>Sujet général&nbsp;:</b> la semaine de quatre jours au Royaume-Uni, ses effets sur le stress, la productivité et l'organisation du travail, et le projet de loi qui pourrait la généraliser.</li>
+            <li><b>Acteurs&nbsp;:</b> Mark Mullen (DG d'Atom Bank), le gouvernement britannique et le ministère (<i>Department for Business &amp; Trade</i>), le professeur Bart van Ark (Productivity Institute, Manchester), l'avocat Richard Fox (Keystone Law).</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ══════ ÉTAPE 3 ══════ -->
+  <section class="step" id="etape3">
+    <div class="step-head">
+      <div class="step-num">3</div>
+      <div class="ht">
+        <h2>Préparer le brouillon, paragraphe par paragraphe</h2>
+        <p class="obj">Reformuler en français les idées clés, sous forme de notes, sans traduire mot à mot.</p>
+      </div>
+    </div>
+    <div class="step-body">
+      <details class="aide">
+        <summary><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> Aide méthode</summary>
+        <div class="ai">
+          <p>Pour chaque grande partie du texte, notez <b>l'idée essentielle en français</b>, sous forme de phrase courte ou de note, pas de traduction. Gardez les <b>chiffres utiles</b>. Vous compterez vos mots à la fin de chaque idée.</p>
+          <p>Pensez à une <b>introduction type</b>&nbsp;: <i>«&nbsp;L'article paru dans le Sunday Times traite de… &nbsp;»</i></p>
+        </div>
+      </details>
+      <div class="field">
+        <label>Introduction (phrase d'amorce)</label>
+        <textarea class="sm" data-save="e3intro" placeholder=""></textarea>
+        <div class="para-wc"><b data-wc="e3intro">0</b> mot(s)</div>
+      </div>
+
+      <div class="para">
+        <div class="pl">Idée 1</div>
+        <textarea class="sm" data-save="e3p1" placeholder="Reformulez en français l'idée principale…"></textarea>
+        <div class="para-wc"><b data-wc="e3p1">0</b> mot(s)</div>
+      </div>
+      <div class="para">
+        <div class="pl">Idée 2</div>
+        <textarea class="sm" data-save="e3p2" placeholder="…"></textarea>
+        <div class="para-wc"><b data-wc="e3p2">0</b> mot(s)</div>
+      </div>
+      <div class="para">
+        <div class="pl">Idée 3</div>
+        <textarea class="sm" data-save="e3p3" placeholder="…"></textarea>
+        <div class="para-wc"><b data-wc="e3p3">0</b> mot(s)</div>
+      </div>
+      <div class="para">
+        <div class="pl">Idée 4</div>
+        <textarea class="sm" data-save="e3p4" placeholder="…"></textarea>
+        <div class="para-wc"><b data-wc="e3p4">0</b> mot(s)</div>
+      </div>
+      <div class="para">
+        <div class="pl">Idée 5</div>
+        <textarea class="sm" data-save="e3p5" placeholder="…"></textarea>
+        <div class="para-wc"><b data-wc="e3p5">0</b> mot(s)</div>
+      </div>
+      <div class="para">
+        <div class="pl">Idée 6</div>
+        <textarea class="sm" data-save="e3p6" placeholder="…"></textarea>
+        <div class="para-wc"><b data-wc="e3p6">0</b> mot(s)</div>
+      </div>
+      <div class="para">
+        <div class="pl">Idée 7</div>
+        <textarea class="sm" data-save="e3p7" placeholder="…"></textarea>
+        <div class="para-wc"><b data-wc="e3p7">0</b> mot(s)</div>
+      </div>
+      <div class="para">
+        <div class="pl">Idée 8</div>
+        <textarea class="sm" data-save="e3p8" placeholder="…"></textarea>
+        <div class="para-wc"><b data-wc="e3p8">0</b> mot(s)</div>
+      </div>
+      <div class="para">
+        <div class="pl">Idée 9</div>
+        <textarea class="sm" data-save="e3p9" placeholder="…"></textarea>
+        <div class="para-wc"><b data-wc="e3p9">0</b> mot(s)</div>
+      </div>
+      <div class="para">
+        <div class="pl">Idée 10</div>
+        <textarea class="sm" data-save="e3p10" placeholder="…"></textarea>
+        <div class="para-wc"><b data-wc="e3p10">0</b> mot(s)</div>
+      </div>
+      <div class="para">
+        <div class="pl">Idée 11</div>
+        <textarea class="sm" data-save="e3p11" placeholder="…"></textarea>
+        <div class="para-wc"><b data-wc="e3p11">0</b> mot(s)</div>
+      </div>
+      <div class="para">
+        <div class="pl">Idée 12</div>
+        <textarea class="sm" data-save="e3p12" placeholder="…"></textarea>
+        <div class="para-wc"><b data-wc="e3p12">0</b> mot(s)</div>
+      </div>
+      <div class="para">
+        <div class="pl">Idée 13</div>
+        <textarea class="sm" data-save="e3p13" placeholder="…"></textarea>
+        <div class="para-wc"><b data-wc="e3p13">0</b> mot(s)</div>
+      </div>
+      <div class="para">
+        <div class="pl">Idée 14</div>
+        <textarea class="sm" data-save="e3p14" placeholder="…"></textarea>
+        <div class="para-wc"><b data-wc="e3p14">0</b> mot(s)</div>
+      </div>
+      <div class="para">
+        <div class="pl">Idée 15</div>
+        <textarea class="sm" data-save="e3p15" placeholder="…"></textarea>
+        <div class="para-wc"><b data-wc="e3p15">0</b> mot(s)</div>
+      </div>
+
+      <div class="counter" id="cnt3"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg> Brouillon provisoire&nbsp;: <b>0</b> mots</div>
+
+      <details class="corr">
+        <summary><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> Voir les idées clés à retenir</summary>
+        <div class="ci">
+          <ul>
+            <li>Témoignage de Mark Mullen, DG d'Atom Bank&nbsp;: lui et ses 550 salariés sont passés à la semaine de quatre jours, entreprise restée rentable et en expansion.</li>
+            <li>Le ministère britannique de l'Économie prépare une réforme obligeant les employeurs à accorder la semaine de quatre jours si les salariés la demandent.</li>
+            <li>L'idée&nbsp;: laisser les salariés organiser leur temps de travail (flexibilité).</li>
+            <li>Le Royaume-Uni n'est pas seul&nbsp;: la Belgique l'a fait dès 2022 et d'autres pays européens l'expérimentent. Une étude (61 entreprises) montre des salariés moins stressés et moins absents.</li>
+            <li>Chez Atom, la productivité a augmenté malgré la réduction des heures (de 37 à 34/semaine, salaires maintenus).</li>
+            <li>Le sujet ne fait pas consensus&nbsp;: longues journées = risque de fatigue et de baisse de productivité&nbsp;; certains préfèrent la semaine de cinq jours.</li>
+            <li>Une fois passé à quatre jours, le retour en arrière est difficile (et donc le changement d'entreprise aussi). 92&nbsp;% des participants à l'essai ont choisi de continuer.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ══════ ÉTAPE 4 ══════ -->
+  <section class="step" id="etape4">
+    <div class="step-head">
+      <div class="step-num">4</div>
+      <div class="ht">
+        <h2>Organiser et alléger le brouillon</h2>
+        <p class="obj">Obtenir un compte rendu cohérent et respecter le nombre de mots demandé.</p>
+      </div>
+    </div>
+    <div class="step-body">
+      <details class="aide">
+        <summary><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> Aide méthode</summary>
+        <div class="ai">
+          <p>Relisez votre brouillon et <b>éliminez</b>&nbsp;: les répétitions, les exemples accessoires, les détails secondaires. <b>Gardez</b> les arguments forts et les chiffres utiles. Pensez à ajouter des <b>connecteurs logiques</b> (<i>de plus, cependant, en revanche, par conséquent…</i>) pour relier les idées.</p>
+        </div>
+      </details>
+      <table class="cuts">
+        <thead><tr><th>Idée(s) éliminée(s)</th><th>Pourquoi&nbsp;?</th><th>Mots gagnés</th></tr></thead>
+        <tbody>
+          <tr><td><textarea data-save="e4i1" placeholder="Ex. : l'anecdote du supermarché…"></textarea></td><td><textarea data-save="e4w1" placeholder="détail anecdotique"></textarea></td><td><input class="line" data-save="e4n1" inputmode="numeric" placeholder=","></td></tr>
+          <tr><td><textarea data-save="e4i2"></textarea></td><td><textarea data-save="e4w2"></textarea></td><td><input class="line" data-save="e4n2" inputmode="numeric" placeholder=","></td></tr>
+          <tr><td><textarea data-save="e4i3"></textarea></td><td><textarea data-save="e4w3"></textarea></td><td><input class="line" data-save="e4n3" inputmode="numeric" placeholder=","></td></tr>
+          <tr><td><textarea data-save="e4i4"></textarea></td><td><textarea data-save="e4w4"></textarea></td><td><input class="line" data-save="e4n4" inputmode="numeric" placeholder=","></td></tr>
+        </tbody>
+      </table>
+      <details class="corr">
+        <summary><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> Voir des pistes</summary>
+        <div class="ci">
+          <ul>
+            <li><b>À supprimer&nbsp;:</b> l'anecdote du coup de fil au supermarché&nbsp;; le détail «&nbsp;travail le soir après avoir couché les enfants&nbsp;»&nbsp;; les citations mot à mot (à reformuler en synthèse).</li>
+            <li><b>À garder&nbsp;:</b> les chiffres parlants (550 salariés, 37→34 h, 92&nbsp;%, 2022), l'opposition réussite / limites, le projet de loi.</li>
+            <li><b>Connecteurs utiles&nbsp;:</b> <i>en effet, de plus, cependant, en revanche, par conséquent, enfin.</i></li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ══════ ÉTAPE 5 ══════ -->
+  <section class="step" id="etape5">
+    <div class="step-head">
+      <div class="step-num">5</div>
+      <div class="ht">
+        <h2>Rédiger le compte rendu</h2>
+        <p class="obj">Un texte cohérent, structuré, neutre, dans un français de qualité, et au bon nombre de mots.</p>
+      </div>
+    </div>
+    <div class="step-body">
+      <details class="aide">
+        <summary><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> Aide méthode</summary>
+        <div class="ai">
+          <p>Rédigez à partir de votre brouillon organisé. <b>Aérez</b> le compte rendu&nbsp;: alinéas, paragraphes, sauts de ligne. Restez <b>neutre</b> (pas de «&nbsp;je pense que&nbsp;»). Indiquez le <b>nombre de mots</b> à la fin.</p>
+        </div>
+      </details>
+      <div class="field">
+        <label>Introduction</label>
+        <textarea class="md" data-save="e5intro" placeholder=""></textarea>
+      </div>
+      <div class="field">
+        <label>Développement du compte rendu</label>
+        <textarea class="lg" data-save="e5body" placeholder="Rédigez ici votre compte rendu, en paragraphes aérés…"></textarea>
+      </div>
+      <div class="counter" id="cnt5"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg> Compte rendu&nbsp;: <b>0</b> mots <span id="cnt5msg" style="margin-left:4px;"></span></div>
+      <ul class="check" id="checklist" style="margin-top:20px;">
+        <li><input type="checkbox" id="c1" data-save="c1"><label for="c1">J'ai indiqué le nombre exact de mots à la fin.</label></li>
+        <li><input type="checkbox" id="c2" data-save="c2"><label for="c2">J'ai respecté la longueur demandée.</label></li>
+        <li><input type="checkbox" id="c3" data-save="c3"><label for="c3">J'ai rédigé une introduction type recevable.</label></li>
+        <li><input type="checkbox" id="c4" data-save="c4"><label for="c4">J'ai sélectionné les idées essentielles, sans tout raconter.</label></li>
+        <li><input type="checkbox" id="c5" data-save="c5"><label for="c5">J'ai supprimé les exemples inutiles ou redondants.</label></li>
+        <li><input type="checkbox" id="c6" data-save="c6"><label for="c6">J'ai utilisé des connecteurs logiques sans en abuser.</label></li>
+        <li><input type="checkbox" id="c7" data-save="c7"><label for="c7">J'ai aéré mon compte rendu&nbsp;: alinéas, paragraphes, sauts de ligne.</label></li>
+        <li><input type="checkbox" id="c8" data-save="c8"><label for="c8">J'ai adopté un registre de langue adapté&nbsp;: clair, neutre et professionnel.</label></li>
+        <li><input type="checkbox" id="c9" data-save="c9"><label for="c9">Je me suis relu(e) en fonction de mes faiblesses en français.</label></li>
+        <li><input type="checkbox" id="c10" data-save="c10"><label for="c10">Je n'ai pas donné mon avis personnel.</label></li>
+      </ul>
+      <p class="check-foot"><b id="checkcount">0</b>&nbsp;/&nbsp;10 vérifications effectuées.</p>
+      <details class="corr">
+        <summary><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> Voir un exemple de compte rendu rédigé</summary>
+        <div class="ci">
+          <p>Cet article de presse, paru dans le <i>Sunday Times</i>, porte sur la semaine de quatre jours au Royaume-Uni et sur ses effets réels. Mark Mullen, directeur général d'Atom Bank, en témoigne&nbsp;: depuis trois ans, ses 550 salariés travaillent quatre jours par semaine, sans que l'entreprise, restée rentable et en croissance, en pâtisse.</p>
+          <p>Le gouvernement britannique prépare une réforme qui obligerait les employeurs à accorder cette organisation, dite «&nbsp;heures compressées&nbsp;», aux salariés qui la demandent, afin de leur offrir davantage de souplesse. Le Royaume-Uni n'est pas isolé&nbsp;: la Belgique a légiféré dès 2022 et plusieurs pays européens mènent des essais. Une étude portant sur 61 entreprises conclut à des salariés moins stressés, moins épuisés et moins souvent absents.</p>
+          <p>Chez Atom, la productivité a même progressé malgré la réduction des heures (de 37 à 34 par semaine, à salaire inchangé). Le sujet ne fait toutefois pas l'unanimité&nbsp;: des journées plus longues risquent d'engendrer fatigue et baisse de concentration, et certains préfèrent conserver la semaine de cinq jours&nbsp;; Mullen précise d'ailleurs que ce modèle ne convient pas à toutes les activités. Enfin, une fois ce rythme adopté, le retour en arrière devient difficile, ce qui freine les changements d'employeur&nbsp;; 92&nbsp;% des participants à l'essai ont choisi de le pérenniser. <i>(≈ 205 mots)</i></p>
+          <p class="corr-note">Ce n'est qu'un exemple parmi d'autres&nbsp;: votre formulation peut différer tant que les idées essentielles y sont, dans un français neutre et clair.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+  <div class="ia-box" data-ia="compte-rendu" data-ia-titre="Retour de l'IA sur mon compte rendu" data-ia-texte="Introduction=textarea[data-save=e5intro]|Développement=textarea[data-save=e5body]" data-ia-ctx="Article source=#article" data-ia-min="40"></div>
+
+  <!-- ── ACTIONS ── -->
+  <div class="actions">
+    <button class="btn primary" onclick="window.print()">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+      Imprimer ma fiche
+    </button>
+    <a class="btn" href="index.html">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+      Revenir à l'accueil
+    </a>
+  </div>
+
+</div>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <img src="assets/lsa-logo.png" alt="Logo LSA">
+      <div>
+        <strong>LSA Toolbox</strong>
+        <span>Outils pédagogiques · M. Blanchet</span>
+      </div>
+    </div>
+    <nav class="foot-links">
+      <a href="https://www.lycee-sidoine-apollinaire.fr" target="_blank" rel="noopener">Lycée Sidoine Apollinaire</a>
+      <a href="https://www.lycee-sidoine-apollinaire.fr/contact/" target="_blank" rel="noopener">Contact</a>
+      <a href="index.html">Accueil</a>
+    </nav>
+  </div>
+<div class="visit-count" id="visitCount"></div></footer>
+
+<script>
+(function(){
+  const STORE = 'lsa-cr-4days-v1';
+
+  // ── load saved state ──
+  let state = {};
+  try{ state = JSON.parse(localStorage.getItem(STORE) || '{}'); }catch(e){ state = {}; }
+
+  const fields = Array.from(document.querySelectorAll('[data-save]'));
+  fields.forEach(el=>{
+    const k = el.dataset.save;
+    if(state[k] !== undefined){
+      if(el.type === 'checkbox') el.checked = !!state[k];
+      else el.value = state[k];
+    }
+  });
+
+  let saveTimer = null;
+  function persist(){
+    const o = {};
+    fields.forEach(el=>{ o[el.dataset.save] = (el.type==='checkbox') ? el.checked : el.value; });
+    localStorage.setItem(STORE, JSON.stringify(o));
+  }
+  function scheduleSave(){ clearTimeout(saveTimer); saveTimer = setTimeout(persist, 250); }
+
+  fields.forEach(el=>{
+    el.addEventListener('input', ()=>{ scheduleSave(); updateAll(); });
+    el.addEventListener('change', ()=>{ scheduleSave(); updateAll(); });
+  });
+
+  // ── word counter helper ──
+  function countWords(str){
+    const t = (str||'').trim();
+    if(!t) return 0;
+    return t.split(/\s+/).filter(Boolean).length;
+  }
+
+  // ── source text word count ──
+  const artText = document.getElementById('article').innerText.replace(/\u201c|\u201d|\u2014|\u2026/g,' ');
+  document.getElementById('srcWords').textContent = '≈ ' + Math.round(countWords(artText)/10)*10;
+
+  // ── step 3 counter ──
+  const cnt3 = document.querySelector('#cnt3 b');
+  // ── step 5 counter ──
+  const cnt5 = document.querySelector('#cnt5 b');
+  const cnt5msg = document.getElementById('cnt5msg');
+  const cnt5box = document.getElementById('cnt5');
+  // ── checklist ──
+  const checkcount = document.getElementById('checkcount');
+
+  function updateAll(){
+    // step 3 : sum of all e3 fields + per-idea word counts
+    const e3keys = ['e3intro','e3p1','e3p2','e3p3','e3p4','e3p5','e3p6','e3p7','e3p8','e3p9','e3p10','e3p11','e3p12','e3p13','e3p14','e3p15'];
+    let w3 = 0;
+    e3keys.forEach(k=>{
+      const el = document.querySelector('[data-save="'+k+'"]');
+      const wc = document.querySelector('[data-wc="'+k+'"]');
+      if(el){ const n=countWords(el.value); w3+=n; if(wc) wc.textContent=n; }
+    });
+    cnt3.textContent = w3;
+
+    // step 5 : intro + body
+    const w5 = countWords((document.querySelector('[data-save="e5intro"]')||{}).value) + countWords((document.querySelector('[data-save="e5body"]')||{}).value);
+    cnt5.textContent = w5;
+    cnt5box.classList.remove('ok','over');
+    cnt5msg.textContent = '';
+    if(w5 === 0){ /* nothing */ }
+    else if(w5 < 180){ cnt5msg.textContent = '· encore ' + (180 - w5) + ' mot' + ((180-w5)>1?'s':'') + ' (cible 180–220)'; }
+    else if(w5 <= 220){ cnt5box.classList.add('ok'); cnt5msg.textContent = '· bonne longueur ✓'; }
+    else { cnt5box.classList.add('over'); cnt5msg.textContent = '· ' + (w5 - 220) + ' mot' + ((w5-220)>1?'s':'') + ' de trop'; }
+
+    // checklist
+    const checks = Array.from(document.querySelectorAll('#checklist input'));
+    const n = checks.filter(c=>c.checked).length;
+    checkcount.textContent = n;
+
+    // step nav done state
+    markNavDone();
+  }
+
+  function stepFilled(ids){ return ids.some(k=>{ const el=document.querySelector('[data-save="'+k+'"]'); return el && countWords(el.value)>0; }); }
+  function markNavDone(){
+    const map = {
+      etape1:['e1a','e1b','e1c'],
+      etape2:['e2a','e2b','e2c'],
+      etape3:['e3intro','e3p1','e3p2','e3p3','e3p4','e3p5','e3p6','e3p7','e3p8','e3p9','e3p10','e3p11','e3p12','e3p13','e3p14','e3p15'],
+      etape4:['e4i1','e4i2','e4i3','e4i4'],
+      etape5:['e5intro','e5body']
+    };
+    document.querySelectorAll('.stepnav a').forEach(a=>{
+      const id = a.getAttribute('href').slice(1);
+      if(id==='etape6'){
+        const n = Array.from(document.querySelectorAll('#checklist input')).filter(c=>c.checked).length;
+        a.classList.toggle('done', n===10);
+      } else if(map[id]){
+        a.classList.toggle('done', stepFilled(map[id]));
+      }
+    });
+  }
+
+  // ── code de repérage toggles ──
+  const article = document.getElementById('article');
+  document.querySelectorAll('.hl-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const k = btn.dataset.k;
+      const on = btn.getAttribute('aria-pressed') !== 'true';
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      article.classList.toggle('show-'+k, on);
+    });
+  });
+
+  // ── reset ──
+  document.getElementById('resetBtn').addEventListener('click', ()=>{
+    if(!confirm('Effacer toutes vos réponses sur cette fiche ? Cette action est définitive.')) return;
+    localStorage.removeItem(STORE);
+    fields.forEach(el=>{ if(el.type==='checkbox') el.checked=false; else el.value=''; });
+    updateAll();
+  });
+
+  updateAll();
+})();
+</script>
+<script>(function(){var k=(location.pathname.split("/").pop()||"index").replace(".html","");var e=document.getElementById("visitCount");if(e){e.innerHTML='<img src="https://api.visitorbadge.io/api/visitors?path=lsa-sio-'+encodeURIComponent(k)+'&label=Visites&countColor=%23c8a84b&labelColor=%230f1a33&style=flat-square" alt="compteur de visites">'}})();</script><script src="assets/ia.js"></script>
+</body>
+</html>

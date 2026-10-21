@@ -1,0 +1,30 @@
+{
+ "name": "LSA SIO",
+ "short_name": "LSA SIO",
+ "description": "BTS SIO, boîte à outils des étudiants de M. Blanchet",
+ "lang": "fr",
+ "start_url": "index.html",
+ "scope": "./",
+ "display": "standalone",
+ "background_color": "#f5f3ef",
+ "theme_color": "#0f1a33",
+ "icons": [
+  {
+   "src": "assets/sio-icon-192.png?v=1",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "assets/sio-icon-512.png?v=1",
+   "sizes": "512x512",
+   "type": "image/png"
+  },
+  {
+   "src": "assets/sio-icon-512.png?v=1",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ],
+ "id": "./"
+}
