@@ -80,6 +80,8 @@ a{color:inherit;}
 
 /* ── SECTION (each resource) ── */
 .res{margin-bottom:46px;}
+.res{scroll-margin-top:18px;}.res.target-flash{animation:tflash 1.8s ease-out;}@keyframes tflash{0%{box-shadow:0 0 0 4px rgba(245,182,15,.55);border-radius:12px;}100%{box-shadow:0 0 0 4px rgba(245,182,15,0);border-radius:12px;}}
+
 .res-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px;}
 .res-head>div{flex:1;min-width:0;}
 .res-head .idx{
@@ -196,7 +198,7 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.62);margin-top:42px;b
 <!-- RESOURCES -->
 <main class="wrap">
 
-  <details class="fmt-group"><summary class="fmt"><h2 class="fmt-title">Vidéos</h2><span class="fmt-count">2</span><svg class="fmt-chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary><div class="fmt-body"><section class="res">
+  <details class="fmt-group"><summary class="fmt"><h2 class="fmt-title">Vidéos</h2><span class="fmt-count">2</span><svg class="fmt-chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary><div class="fmt-body"><section class="res" id="gb-vs-uk">
     <div class="res-head">
       <span class="idx">1</span>
       <div>
@@ -209,7 +211,7 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.62);margin-top:42px;b
       <iframe src="https://www.youtube.com/embed/xoP0HYz5oUE" title="GB vs UK" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
   </section>
-<section class="res">
+<section class="res" id="inventeur-bitcoin">
     <div class="res-head">
       <span class="idx">2</span>
       <div>
@@ -223,7 +225,7 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.62);margin-top:42px;b
     </div>
   </section>
 </div></details>
-<details class="fmt-group"><summary class="fmt"><h2 class="fmt-title">Podcasts</h2><span class="fmt-count">1</span><svg class="fmt-chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary><div class="fmt-body"><section class="res">
+<details class="fmt-group"><summary class="fmt"><h2 class="fmt-title">Podcasts</h2><span class="fmt-count">1</span><svg class="fmt-chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary><div class="fmt-body"><section class="res" id="fifty-states">
     <div class="res-head">
       <span class="idx">3</span>
       <div>
@@ -259,5 +261,6 @@ footer{background:var(--navy-deep);color:rgba(255,255,255,.62);margin-top:42px;b
   </div>
 <div class="visit-count" id="visitCount"></div></footer>
 
+<script>(function(){function go(){var id=decodeURIComponent((location.hash||"").slice(1));if(!id)return;var el=document.getElementById(id);if(!el)return;var d=el.closest("details");if(d)d.open=true;requestAnimationFrame(function(){el.scrollIntoView({block:"start"});el.classList.remove("target-flash");void el.offsetWidth;el.classList.add("target-flash")})}window.addEventListener("hashchange",go);window.addEventListener("load",go);go();})();</script>
 <script>(function(){var k=(location.pathname.split("/").pop()||"index").replace(".html","");var e=document.getElementById("visitCount");if(e){e.innerHTML='<img src="https://api.visitorbadge.io/api/visitors?path=lsa-sio-'+encodeURIComponent(k)+'&label=Visites&countColor=%23c8a84b&labelColor=%230f1a33&style=flat-square" alt="compteur de visites">'}})();</script></body>
 </html>

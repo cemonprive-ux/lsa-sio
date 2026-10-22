@@ -167,8 +167,8 @@ const VO=[
 {k:'voc',t:'Business English 2',d:'Monde du travail : bien-être, diversité, flexibilité.',h:'business-english-2-vocabulaire-sio.html'},
 {k:'voc',t:'Link words',d:'Les mots de liaison pour structurer un discours.',h:'link-words-vocabulaire-sio.html'}];
 const GK=[
-{g:'Vidéos',k:'vid',t:'GB vs UK',h:'general-knowledge-sio.html'},{g:'Vidéos',k:'vid',t:"Enquête sur l'inventeur du bitcoin",h:'general-knowledge-sio.html'},
-{g:'Podcasts',k:'pod',t:'Fifty States',h:'general-knowledge-sio.html'}];
+{g:'Vidéos',k:'vid',t:'GB vs UK',h:'general-knowledge-sio.html#gb-vs-uk'},{g:'Vidéos',k:'vid',t:"Enquête sur l'inventeur du bitcoin",h:'general-knowledge-sio.html#inventeur-bitcoin'},
+{g:'Podcasts',k:'pod',t:'Fifty States',h:'general-knowledge-sio.html#fifty-states'}];
 const ALL=[...CR.map(x=>({...x,ct:'Compte rendu'})),...OR.map(x=>({...x,ct:'Épreuves orales'})),...VO.map(x=>({...x,ct:'Vocabulaire'})),...GK.map(x=>({...x,ct:'General Knowledge'}))];
 const TABS=[['home','Accueil','home'],['cr','Compte rendu','ess'],['oral','Oral','pod'],['vocabulaire','Vocabulaire','voc'],['culture','Culture G','globe']];
 const route=()=>(location.hash.slice(1)||'home').split('/');
