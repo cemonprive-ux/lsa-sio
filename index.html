@@ -25,7 +25,7 @@ svg{flex-shrink:0}
 .top .ib{width:44px;height:44px;border-radius:10px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center}
 .top .ib:active{background:rgba(255,255,255,.12)}
 main{padding:18px 16px calc(var(--tab) + 28px + env(safe-area-inset-bottom));max-width:1180px;width:100%;margin:0 auto}
-.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--navy-deep);border-top:3px solid var(--accent);display:grid;grid-template-columns:repeat(6,minmax(0,1fr));padding-bottom:env(safe-area-inset-bottom)}
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--navy-deep);border-top:3px solid var(--accent);display:grid;grid-template-columns:repeat(7,minmax(0,1fr));padding-bottom:env(safe-area-inset-bottom)}
 .tabs a{height:var(--tab);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:rgba(255,255,255,.7);font-size:11px;font-weight:600}
 .tabs a.on{color:var(--accent)}.tabs .tbot{width:22px;height:22px;border-radius:5px;background:#fff;padding:1px;object-fit:contain}.tabs a{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:10.5px}
 /* ── common ── */
@@ -122,7 +122,7 @@ main{padding:34px 40px 40px}
 .seg{max-width:520px}
 .gridres{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 16px}
 }
-@media(max-width:380px){.tabs a{font-size:10px}main{padding-left:12px;padding-right:12px}}
+@media(max-width:380px){.tabs a{font-size:9.5px}main{padding-left:12px;padding-right:12px}}
 </style>
 <script src="assets/app-nav.js"></script>
 </head>
@@ -137,6 +137,7 @@ main{padding:34px 40px 40px}
 <nav class="tabs" id="tabs" aria-label="Navigation principale"></nav>
 <script>
 const I={
+check:'<path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/>',
 home:'<path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/>',
 book:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>',
 pen:'<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/>',
@@ -153,7 +154,7 @@ leaf:'<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5
 arr:'<path d="M9 6l6 6-6 6"/>',left:'<path d="M15 18l-6-6 6-6"/>',play:'<path d="M5 12h14M13 6l6 6-6 6"/>'
 };
 const ic=(n,s=20,w=2)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round">${I[n]}</svg>`;
-const T={cr:'Compte rendu',oral:'Oral',voc:'Vocabulaire',vid:'Vidéo',pod:'Podcast',pdf:'Support PDF'};
+const T={cr:'Compte rendu',oral:'Oral',voc:'Vocabulaire',vid:'Vidéo',pod:'Podcast',pdf:'Support PDF',test:'Test'};
 const CR=[
 {k:'cr',t:"'Awkward and humiliating'…",d:"Entraînement guidé en 5 étapes, The Guardian, mai 2026.",h:'ai-interviews-compte-rendu.html'},
 {k:'cr',t:"UK's 'anxious generation'…",d:"Entraînement guidé en 6 étapes, The Guardian, mai 2026.",h:'anxious-generation-compte-rendu.html'},
@@ -169,11 +170,13 @@ const VO=[
 const GK=[
 {g:'Vidéos',k:'vid',t:'GB vs UK',h:'general-knowledge-sio.html#gb-vs-uk'},{g:'Vidéos',k:'vid',t:"Enquête sur l'inventeur du bitcoin",h:'general-knowledge-sio.html#inventeur-bitcoin'},
 {g:'Podcasts',k:'pod',t:'Fifty States',h:'general-knowledge-sio.html#fifty-states'}];
-const ALL=[...CR.map(x=>({...x,ct:'Compte rendu'})),...OR.map(x=>({...x,ct:'Épreuves orales'})),...VO.map(x=>({...x,ct:'Vocabulaire'})),...GK.map(x=>({...x,ct:'General Knowledge'}))];
-const TABS=[['home','Accueil','home'],['cr','Compte rendu','ess'],['oral','Oral','pod'],['vocabulaire','Vocabulaire','voc'],['culture','Culture G','globe']];
+/* Rubrique Tests : à alimenter. Format : {k:'test',t:'Titre',d:'Description',h:'page.html'} */
+const TE=[];
+const ALL=[...CR.map(x=>({...x,ct:'Compte rendu'})),...OR.map(x=>({...x,ct:'Épreuves orales'})),...VO.map(x=>({...x,ct:'Vocabulaire'})),...GK.map(x=>({...x,ct:'General Knowledge'})),...TE.map(x=>({...x,ct:'Tests'}))];
+const TABS=[['home','Accueil','home'],['cr','Compte rendu','ess'],['oral','Oral','pod'],['vocabulaire','Vocabulaire','voc'],['culture','Culture G','globe'],['tests','Tests','check']];
 const route=()=>(location.hash.slice(1)||'home').split('/');
 document.addEventListener('click',e=>{const a=e.target.closest('a[data-t]');if(a)try{localStorage.setItem('sio-last',JSON.stringify({t:a.dataset.t,h:a.getAttribute('href')}))}catch(_){}});
-const cls={cr:'ess',oral:'sum',voc:'voc',vid:'vid',pod:'vid'},ico={cr:'ess',oral:'pod',voc:'voc',vid:'vid',pod:'pod'};
+const cls={cr:'ess',oral:'sum',voc:'voc',vid:'vid',pod:'vid',test:'ess'},ico={cr:'ess',oral:'pod',voc:'voc',vid:'vid',pod:'pod',test:'check'};
 const row=x=>`<a class="r" href="${x.h}" data-t="${x.t.replace(/"/g,'&quot;')}"><span class="ic ${cls[x.k]}">${ic(ico[x.k],19)}</span><span><small>${T[x.k]}</small><b>${x.t}</b>${x.d?`<em class="dsc">${x.d}</em>`:''}</span><span class="ar">${ic('arr',18,2.4)}</span></a>`;
 const block=(id,title,n,items)=>`<div class="sec"><h2>${title}</h2><a href="#${id}">${n}</a></div><div class="res gridres">${items.map(row).join('')}</div>`;
 const foot=`<footer class="foot"><img class="l" src="assets/lsa-logo.png" alt="Logo LSA"><span>Lycée Sidoine Apollinaire · M. Blanchet</span><div class="visit-count" id="visitCount"></div></footer>`;
@@ -188,10 +191,11 @@ cr(){return `<h1>Le CR pas à pas</h1><p class="lead">Entraînements guidés pou
 oral(){return `<h1>Épreuves orales</h1><p class="lead">Sujets d'entraînement à l'oral : un support PDF et une vidéo pour chaque entraînement.</p><div class="res" style="margin-top:16px">${OR.map(row).join('')}</div>`},
 vocabulaire(){return `<h1>Vocabulaire</h1><p class="lead">Flashcards, QCM en contexte et phrases à compléter.</p><div class="res" style="margin-top:16px">${VO.map(row).join('')}</div>`},
 culture(){const gs=[...new Set(GK.map(x=>x.g))];return `<h1>General Knowledge</h1>${gs.map(g=>`<div class="sec"><h2>${g}</h2></div><div class="res gridres">${GK.filter(x=>x.g===g).map(row).join('')}</div>`).join('')}`},
+tests(){return `<h1>Tests</h1><p class="lead">Évaluations et entraînements en ligne.</p>`+(TE.length?`<div class="res" style="margin-top:16px">${TE.map(row).join('')}</div>`:`<p class="empty">Cette rubrique sera bientôt alimentée.</p>`)},
 recherche(){return `<h1>Recherche</h1><label class="sbox" style="margin-top:16px">${ic('search')}<input id="q" type="search" placeholder="Compte rendu, oral, vocabulaire…" autocomplete="off"></label><div id="out" class="res" style="margin-top:14px"></div>`}
 };
 function chrome(cur){
-document.getElementById('tabs').innerHTML=TABS.map(([k,l,i])=>`<a href="#${k}" class="${cur===k?'on':''}">${ic(i,22)}${l}</a>`).join('')+`<a href="https://1cours1bot.fr" target="_blank" rel="noopener"><img class="tbot" src="assets/1cours1bot-logo.png" alt="">1cours1bot</a>`;
+const SH={cr:'CR',vocabulaire:'Vocab.'};document.getElementById('tabs').innerHTML=TABS.map(([k,l,i])=>`<a href="#${k}" class="${cur===k?'on':''}">${ic(i,22)}${SH[k]||l}</a>`).join('')+`<a href="https://1cours1bot.fr" target="_blank" rel="noopener"><img class="tbot" src="assets/1cours1bot-logo.png" alt="">1cours1bot</a>`;
 document.getElementById('top').innerHTML=`<img src="assets/lsa-logo.png" alt=""><div class="tt"><b>BTS SIO</b><small>LSA Toolbox · M. Blanchet</small></div><a class="ib" href="#recherche" aria-label="Rechercher">${ic('search',22)}</a>`;
 document.getElementById('side').innerHTML=`<div class="brand"><img src="assets/lsa-logo.png" alt=""><div><b>BTS SIO</b><small>LSA Toolbox · M. Blanchet</small></div></div>
 <nav>${[...TABS,['recherche','Recherche','search']].map(([k,l,i])=>`<a href="#${k}" class="${cur===k?'on':''}">${ic(i,19)}${l}</a>`).join('')}</nav>
