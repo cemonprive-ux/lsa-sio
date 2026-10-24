@@ -17,25 +17,31 @@ svg{flex-shrink:0}
 /* ── shell ── */
 .app{min-height:100vh;display:grid;grid-template-columns:minmax(0,1fr)}
 .side{display:none}
-.top{position:sticky;top:0;z-index:20;background:var(--navy-deep);color:#fff;padding:calc(10px + env(safe-area-inset-top)) 16px 10px;display:flex;align-items:center;gap:12px;border-bottom:3px solid var(--accent)}
-.top img{width:32px;height:32px;border-radius:6px;background:#fff;padding:2px}
+.top{position:sticky;top:0;z-index:20;background:var(--navy-deep);color:#fff;padding:calc(7px + env(safe-area-inset-top)) 16px 7px;display:flex;align-items:center;gap:12px;border-bottom:3px solid var(--accent);transition:padding .2s ease}
+.top img{width:36px;height:36px;border-radius:6px;background:#fff;padding:2px;transition:width .2s ease,height .2s ease}
 .top .tt{flex:1;min-width:0;line-height:1.2}
-.top .tt b{display:block;font-size:16px}
-.top .tt small{font-size:12px;color:rgba(255,255,255,.75)}
+.top .tt b{display:block;font-size:17px;transition:font-size .2s ease}
+.top .tt small{display:block;max-height:16px;overflow:hidden;font-size:12px;color:rgba(255,255,255,.75);transition:opacity .2s ease,max-height .2s ease}
+.top.sm{padding:calc(5px + env(safe-area-inset-top)) 16px 5px}
+.top.sm img{width:28px;height:28px}
+.top.sm .tt b{font-size:16px}
+.top.sm .tt small{opacity:0;max-height:0}
+@media(prefers-reduced-motion:reduce){.top,.top img,.top .tt b,.top .tt small{transition:none}}
 .top .ib{width:44px;height:44px;border-radius:10px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center}
 .top .ib:active{background:rgba(255,255,255,.12)}
-main{padding:18px 16px calc(var(--tab) + 28px + env(safe-area-inset-bottom));max-width:1180px;width:100%;margin:0 auto}
+main{padding:12px 16px calc(var(--tab) + 28px + env(safe-area-inset-bottom));max-width:1180px;width:100%;margin:0 auto}
 .tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--navy-deep);border-top:3px solid var(--accent);display:grid;grid-template-columns:repeat(7,minmax(0,1fr));padding-bottom:env(safe-area-inset-bottom)}
 .tabs a{height:var(--tab);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:rgba(255,255,255,.7);font-size:11px;font-weight:600}
-.tabs a.on{color:var(--accent)}.tabs .tbot{width:22px;height:22px;border-radius:5px;background:#fff;padding:1px;object-fit:contain}.tabs a{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:10.5px}
+.tabs a.on{color:var(--accent)}.tabs .tbot{width:24px;height:24px;object-fit:contain;opacity:.72}.tabs a{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:10.5px}
 /* ── common ── */
 h1{font-size:clamp(1.6rem,5vw,2.4rem);line-height:1.1;font-weight:700}
-.sec{margin:26px 0 12px;display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.sec{margin:16px 0 8px;display:flex;align-items:baseline;justify-content:space-between;gap:12px}
 .sec h2{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy)}
 .sec span{font-size:13px;color:var(--muted)}
-.hello{background:linear-gradient(135deg,var(--navy) 0%,#243260 60%,var(--blue) 135%);border-radius:14px;padding:22px 20px;color:#fff;border-bottom:3px solid var(--accent)}
+.hello{background:linear-gradient(135deg,var(--navy) 0%,#243260 60%,var(--blue) 135%);border-radius:14px;padding:14px 16px;color:#fff;border-bottom:3px solid var(--accent)}
+.hello h1{font-size:24px}
 .hello p{color:rgba(255,255,255,.85);margin-top:8px;font-size:15px}
-.resume{display:flex;align-items:center;gap:12px;margin-top:14px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:10px 12px;color:#fff;min-height:52px}
+.resume{display:flex;align-items:center;gap:12px;margin-top:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:10px 12px;color:#fff;min-height:44px}
 .resume:hover{color:#fff;background:rgba(255,255,255,.16)}
 .resume small{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
 .resume b{font-weight:600;font-size:15px}
@@ -51,10 +57,10 @@ h1{font-size:clamp(1.6rem,5vw,2.4rem);line-height:1.1;font-weight:700}
 .ch .ar{color:var(--blue)}
 /* tiles */
 .tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;color:var(--navy);display:flex;flex-direction:column;gap:10px;min-height:96px;box-shadow:var(--shadow)}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:8px 12px;color:var(--navy);display:flex;align-items:center;gap:12px;min-height:56px;box-shadow:var(--shadow)}
 .tile:hover{border-color:var(--blue);color:var(--navy)}
-.tile .ic{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:var(--navy);color:var(--accent)}
-.tile b{font-size:15px;line-height:1.25}.tile .ic.bot{background:#fff;border:1px solid var(--border)}.tile .ic.bot img{width:26px;height:26px;object-fit:contain}
+.tile .ic{width:40px;height:40px;flex:none;border-radius:9px;display:flex;align-items:center;justify-content:center;background:var(--navy);color:var(--accent)}
+.tile b{font-size:15px;line-height:1.25}.tile .ic.bot{background:#fff;border:1px solid var(--border)}.tile .ic.bot img{width:28px;height:28px;object-fit:contain}
 .tile small{display:block;color:var(--muted);font-size:12.5px;font-weight:500}
 /* chapter view */
 .back{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:14px;min-height:44px;margin:-8px 0 4px}
@@ -65,6 +71,7 @@ h1{font-size:clamp(1.6rem,5vw,2.4rem);line-height:1.1;font-weight:700}
 .cover p{color:rgba(255,255,255,.88);margin-top:8px;font-size:15px;max-width:620px}
 .cols{display:grid;grid-template-columns:minmax(0,1fr);gap:0 24px}
 .res{display:flex;flex-direction:column;gap:8px}
+.res.compact .r{padding:8px 12px;min-height:56px}.res.compact .dsc{display:none}
 .r{display:grid;grid-template-columns:40px minmax(0,1fr) auto;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:10px 12px;color:var(--text);min-height:60px}
 .r:hover{border-color:var(--blue);color:var(--text)}
 .r .ic{width:40px;height:40px;border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;background:var(--blue)}
@@ -107,6 +114,8 @@ h1{font-size:clamp(1.6rem,5vw,2.4rem);line-height:1.1;font-weight:700}
 .side .out:hover{color:#fff}
 main{padding:34px 40px 40px}
 .hello{padding:34px 36px}
+.hello h1{font-size:clamp(1.6rem,5vw,2.4rem)}
+.sec{margin:26px 0 12px}
 .hello p{font-size:17px;max-width:640px}
 .resume{max-width:460px}
 .chs{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
@@ -179,15 +188,15 @@ const route=()=>(location.hash.slice(1)||'home').split('/');
 document.addEventListener('click',e=>{const a=e.target.closest('a[data-t]');if(a)try{localStorage.setItem('sio-last',JSON.stringify({t:a.dataset.t,h:a.getAttribute('href')}))}catch(_){}});
 const cls={cr:'ess',oral:'sum',voc:'voc',vid:'vid',pod:'vid',test:'ess'},ico={cr:'ess',oral:'pod',voc:'voc',vid:'vid',pod:'pod',test:'check'};
 const row=x=>`<a class="r" href="${x.h}" data-t="${x.t.replace(/"/g,'&quot;')}"><span class="ic ${cls[x.k]}">${ic(ico[x.k],19)}</span><span><small>${T[x.k]}</small><b>${x.t}</b>${x.d?`<em class="dsc">${x.d}</em>`:''}</span><span class="ar">${ic('arr',18,2.4)}</span></a>`;
-const block=(id,title,n,items)=>`<div class="sec"><h2>${title}</h2><a href="#${id}">${n}</a></div><div class="res gridres">${items.map(row).join('')}</div>`;
+const block=(id,title,n,items)=>`<div class="sec"><h2>${title}</h2><a href="#${id}">${n}</a></div><div class="res gridres compact">${items.map(row).join('')}</div>`;
 const foot=`<footer class="foot"><img class="l" src="assets/lsa-logo.png" alt="Logo LSA"><span>Lycée Sidoine Apollinaire · M. Blanchet</span><div class="visit-count" id="visitCount"></div></footer>`;
 const V={
 home(){let l=null;try{l=JSON.parse(localStorage.getItem('sio-last'))}catch(_){}
-return `<section class="hello"><h1>BTS SIO <span>Toolbox</span></h1><p>Le compte rendu pas à pas, les épreuves orales, le vocabulaire et la culture générale.</p>${l?`<a class="resume" href="${l.h}"><span class="g"><small>Reprendre</small><b>${l.t}</b></span>${ic('play',20,2.4)}</a>`:''}</section>
+return `<section class="hello"><h1>BTS SIO <span>Toolbox</span></h1>${l?`<a class="resume" href="${l.h}"><span class="g"><small>Reprendre</small><b>${l.t}</b></span>${ic('play',20,2.4)}</a>`:''}</section>
 ${block('cr','Le CR pas à pas','3 fiches',CR)}${block('oral','Épreuves orales','3 sujets',OR)}${block('vocabulaire','Vocabulaire','3 fiches',VO)}
 <div class="sec"><h2>Aussi</h2></div><div class="tiles">
-<a class="tile" href="#culture"><span class="ic">${ic('globe')}</span><b>General Knowledge<small>Vidéos et podcast</small></b></a>
-<a class="tile" href="https://1cours1bot.fr" target="_blank" rel="noopener"><span class="ic bot"><img src="assets/1cours1bot-logo.png" alt=""></span><b>1cours1bot<small>Externe ↗</small></b></a></div>`},
+<a class="tile" href="#culture"><span class="ic">${ic('globe')}</span><b>General Knowledge</b></a>
+<a class="tile" href="https://1cours1bot.fr" target="_blank" rel="noopener"><span class="ic bot"><img src="assets/1cours1bot-logo.png" alt=""></span><b>1cours1bot</b></a></div>`},
 cr(){return `<h1>Le CR pas à pas</h1><p class="lead">Entraînements guidés pour rédiger en français le compte rendu d'un article de presse anglais.</p><div class="res" style="margin-top:16px">${CR.map(row).join('')}</div>`},
 oral(){return `<h1>Épreuves orales</h1><p class="lead">Sujets d'entraînement à l'oral : un support PDF et une vidéo pour chaque entraînement.</p><div class="res" style="margin-top:16px">${OR.map(row).join('')}</div>`},
 vocabulaire(){return `<h1>Vocabulaire</h1><p class="lead">Flashcards, QCM en contexte et phrases à compléter.</p><div class="res" style="margin-top:16px">${VO.map(row).join('')}</div>`},
@@ -196,7 +205,7 @@ tests(){return `<h1>Tests</h1><p class="lead">Évaluations et entraînements en 
 recherche(){return `<h1>Recherche</h1><label class="sbox" style="margin-top:16px">${ic('search')}<input id="q" type="search" placeholder="Compte rendu, oral, vocabulaire…" autocomplete="off"></label><div id="out" class="res" style="margin-top:14px"></div>`}
 };
 function chrome(cur){
-const SH={cr:'CR',vocabulaire:'Vocab.'};document.getElementById('tabs').innerHTML=TABS.map(([k,l,i])=>`<a href="#${k}" class="${cur===k?'on':''}">${ic(i,22)}${SH[k]||l}</a>`).join('')+`<a href="https://1cours1bot.fr" target="_blank" rel="noopener"><img class="tbot" src="assets/1cours1bot-logo.png" alt="">1cours1bot</a>`;
+const SH={cr:'CR',vocabulaire:'Vocab.'};document.getElementById('tabs').innerHTML=TABS.map(([k,l,i])=>`<a href="#${k}" class="${cur===k?'on':''}">${ic(i,22)}${SH[k]||l}</a>`).join('')+`<a href="https://1cours1bot.fr" target="_blank" rel="noopener" aria-label="1cours1bot"><img class="tbot" src="assets/1c1b-icon.png" alt="">1c1b</a>`;
 document.getElementById('top').innerHTML=`<img src="assets/lsa-logo.png" alt=""><div class="tt"><b>BTS SIO</b><small>LSA Toolbox · M. Blanchet</small></div><a class="ib" href="#recherche" aria-label="Rechercher">${ic('search',22)}</a>`;
 document.getElementById('side').innerHTML=`<div class="brand"><img src="assets/lsa-logo.png" alt=""><div><b>BTS SIO</b><small>LSA Toolbox · M. Blanchet</small></div></div>
 <nav>${[...TABS,['recherche','Recherche','search']].map(([k,l,i])=>`<a href="#${k}" class="${cur===k?'on':''}">${ic(i,19)}${l}</a>`).join('')}</nav>
@@ -209,6 +218,7 @@ function render(){const [v]=route();chrome(v);
 document.getElementById('view').innerHTML=(V[v]||V.home)()+foot;window.scrollTo(0,0);if(v==='recherche')search();
 const k=(location.pathname.split('/').pop()||'index').replace('.html','');const e=document.getElementById('visitCount');if(e)e.innerHTML='<img src="https://api.visitorbadge.io/api/visitors?path=lsa-sio-'+encodeURIComponent(k)+'&label=Visites&countColor=%23f5b60f&labelColor=%230f1a33&style=flat-square" alt="compteur de visites">';}
 addEventListener('hashchange',render);render();
+(function(){const t=document.getElementById('top');const f=()=>{const y=window.scrollY||0;t.classList.toggle('sm',y>(t.classList.contains('sm')?8:24))};addEventListener('scroll',f,{passive:true});f()})();
 </script>
 </body>
 </html>
