@@ -181,7 +181,8 @@ const GK=[
 {g:'Podcasts',k:'pod',t:'Fifty States',h:'general-knowledge-sio.html#fifty-states'}];
 /* Rubrique Tests : à alimenter. Format : {k:'test',t:'Titre',d:'Description',h:'page.html',from:'2026-11-02T09:45:00+01:00'} ; « from » (facultatif) = date d'apparition. */
 const TE=[
-{k:'test',t:'Connecteurs logiques',d:"Évaluation en ligne, lundi 2 novembre à 10 h 15, 25 minutes. Le code d'accès est donné en classe.",h:'https://sio-test.cemonprive.workers.dev',from:'2026-11-02T09:45:00+01:00'}].filter(x=>!x.from||Date.now()>=Date.parse(x.from));
+{k:'test',t:'Connecteurs logiques',d:"Évaluation en ligne, lundi 2 novembre à 10 h 15, 25 minutes. Le code d'accès est donné en classe.",h:'https://sio-test.cemonprive.workers.dev',from:'2026-11-02T09:45:00+01:00'},
+{k:'test',t:'Virtual Traffic Lights',d:"Compréhension orale (B2), jeudi 5 novembre : groupe 2 de 8 h à 9 h, groupe 1 de 9 h à 10 h. Le code d'accès est donné en classe.",h:'https://sio-co-virtual-traffic.cemonprive.workers.dev',from:'2026-11-05T07:45:00+01:00'}].filter(x=>!x.from||Date.now()>=Date.parse(x.from));
 const ALL=[...CR.map(x=>({...x,ct:'Compte rendu'})),...OR.map(x=>({...x,ct:'Épreuves orales'})),...VO.map(x=>({...x,ct:'Vocabulaire'})),...GK.map(x=>({...x,ct:'General Knowledge'})),...TE.map(x=>({...x,ct:'Tests'}))];
 const TABS=[['home','Accueil','home'],['cr','Compte rendu','ess'],['oral','Oral','pod'],['vocabulaire','Vocabulaire','voc'],['culture','Culture G','globe'],['tests','Tests','check']];
 const route=()=>(location.hash.slice(1)||'home').split('/');
