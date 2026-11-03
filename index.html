@@ -163,7 +163,7 @@ leaf:'<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5
 arr:'<path d="M9 6l6 6-6 6"/>',left:'<path d="M15 18l-6-6 6-6"/>',play:'<path d="M5 12h14M13 6l6 6-6 6"/>'
 };
 const ic=(n,s=20,w=2)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round">${I[n]}</svg>`;
-const T={cr:'Compte rendu',oral:'Oral',voc:'Vocabulaire',vid:'Vidéo',pod:'Podcast',pdf:'Support PDF',test:'Test'};
+const T={cr:'Compte rendu',oral:'Oral',voc:'Vocabulaire',vid:'Vidéo',pod:'Podcast',art:'Article',pdf:'Support PDF',test:'Test'};
 const CR=[
 {k:'cr',t:"'Awkward and humiliating'…",d:"Entraînement guidé en 5 étapes, The Guardian, mai 2026.",h:'ai-interviews-compte-rendu.html'},
 {k:'cr',t:"UK's 'anxious generation'…",d:"Entraînement guidé en 6 étapes, The Guardian, mai 2026.",h:'anxious-generation-compte-rendu.html'},
@@ -178,7 +178,8 @@ const VO=[
 {k:'voc',t:'Link words',d:'Les mots de liaison pour structurer un discours.',h:'link-words-vocabulaire-sio.html'}];
 const GK=[
 {g:'Vidéos',k:'vid',t:'GB vs UK',h:'general-knowledge-sio.html#gb-vs-uk'},{g:'Vidéos',k:'vid',t:"Enquête sur l'inventeur du bitcoin",h:'general-knowledge-sio.html#inventeur-bitcoin'},
-{g:'Podcasts',k:'pod',t:'Fifty States',h:'general-knowledge-sio.html#fifty-states'}];
+{g:'Podcasts',k:'pod',t:'Fifty States',h:'general-knowledge-sio.html#fifty-states'},
+{g:'Articles',k:'art',t:'Midterms 2026: Who Will Control Congress?',d:'Les élections de mi-mandat américaines du 3 novembre 2026 : enjeux, sièges en jeu et rapports de force au Congrès.',h:'midterms-2026.html'}];
 /* Rubrique Tests : à alimenter. Format : {k:'test',t:'Titre',d:'Description',h:'page.html',from:'2026-11-02T09:45:00+01:00'} ; « from » (facultatif) = date d'apparition. */
 const TE=[
 {k:'test',t:'Connecteurs logiques',d:"Évaluation en ligne, lundi 2 novembre à 10 h 15, 25 minutes. Le code d'accès est donné en classe.",h:'https://sio-test.cemonprive.workers.dev',from:'2026-11-02T09:45:00+01:00'},
@@ -187,7 +188,7 @@ const ALL=[...CR.map(x=>({...x,ct:'Compte rendu'})),...OR.map(x=>({...x,ct:'Épr
 const TABS=[['home','Accueil','home'],['cr','Compte rendu','ess'],['oral','Oral','pod'],['vocabulaire','Vocabulaire','voc'],['culture','Culture G','globe'],['tests','Tests','check']];
 const route=()=>(location.hash.slice(1)||'home').split('/');
 document.addEventListener('click',e=>{const a=e.target.closest('a[data-t]');if(a)try{localStorage.setItem('sio-last',JSON.stringify({t:a.dataset.t,h:a.getAttribute('href')}))}catch(_){}});
-const cls={cr:'ess',oral:'sum',voc:'voc',vid:'vid',pod:'vid',test:'ess'},ico={cr:'ess',oral:'pod',voc:'voc',vid:'vid',pod:'pod',test:'check'};
+const cls={cr:'ess',oral:'sum',voc:'voc',vid:'vid',pod:'vid',art:'ess',test:'ess'},ico={cr:'ess',oral:'pod',voc:'voc',vid:'vid',pod:'pod',art:'read',test:'check'};
 const row=x=>`<a class="r" href="${x.h}" data-t="${x.t.replace(/"/g,'&quot;')}"><span class="ic ${cls[x.k]}">${ic(ico[x.k],19)}</span><span><small>${T[x.k]}</small><b>${x.t}</b>${x.d?`<em class="dsc">${x.d}</em>`:''}</span><span class="ar">${ic('arr',18,2.4)}</span></a>`;
 const block=(id,title,n,items)=>`<div class="sec"><h2>${title}</h2><a href="#${id}">${n}</a></div><div class="res gridres compact">${items.map(row).join('')}</div>`;
 const foot=`<footer class="foot"><img class="l" src="assets/lsa-logo.png" alt="Logo LSA"><span>Lycée Sidoine Apollinaire · M. Blanchet</span><div class="visit-count" id="visitCount"></div></footer>`;

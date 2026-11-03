@@ -6,8 +6,9 @@ var isIndex=file==="index.html";
 var standalone=(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||window.navigator.standalone===true||/[?&]app=1/.test(location.search);
 
 /* Page parente explicite (sinon : accueil) */
-var H={"digital-currency.html":"1-Finance","accounting-auditing.html":"2-Accounting","governance-csr.html":"3-Governance","information-systems.html":"4-Information Systems","management-hr.html":"5-Management","production.html":"6-Production","marketing.html":"7-Marketing","green-revolution.html":"Green Revolution","general-knowledge.html":"General Knowledge","general-knowledge-dcg.html":"General Knowledge","general-knowledge-sio.html":"General Knowledge","general-knowledge-mco.html":"General Knowledge","general-knowledge-terminale.html":"General Knowledge","phonologie-ia-terminale.html":"Phonologie IA","phonologie-ia-mco.html":"Phonologie IA"};
+var H={"digital-currency.html":"1-Finance","accounting-auditing.html":"2-Accounting","governance-csr.html":"3-Governance","information-systems.html":"4-Information Systems","management-hr.html":"5-Management","production.html":"6-Production","marketing.html":"7-Marketing","green-revolution.html":"Green Revolution","general-knowledge.html":"General Knowledge","general-knowledge-dcg.html":"General Knowledge","general-knowledge-sio.html":"General Knowledge","general-knowledge-mco.html":"General Knowledge","general-knowledge-terminale.html":"General Knowledge","phonologie-ia-terminale.html":"Phonologie IA","phonologie-ia-mco.html":"Phonologie IA","index.html#culture":"General Knowledge"};
 var P={
+"midterms-2026.html":"index.html#culture",
 "finance-fil-rouge.html":"digital-currency.html","cryptocurrencies.html":"digital-currency.html","Digital-currency-summary-trainer.html":"digital-currency.html","Digital-currency-essay-trainer.html":"digital-currency.html",
 "accounting-auditing-fil-rouge.html":"accounting-auditing.html","Accounting-auditing-summary-trainer.html":"accounting-auditing.html","Accounting-auditing-essay-trainer.html":"accounting-auditing.html",
 "governance-csr-fil-rouge.html":"governance-csr.html","green-revolution.html":"governance-csr.html",
