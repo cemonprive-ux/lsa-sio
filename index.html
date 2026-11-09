@@ -183,7 +183,7 @@ const GK=[
 /* Rubrique Tests : à alimenter. Format : {k:'test',t:'Titre',d:'Description',h:'page.html',from:'2026-11-02T09:45:00+01:00'} ; « from » (facultatif) = date d'apparition. */
 const TE=[
 {k:'test',t:'Virtual Traffic Lights',d:"Compréhension orale (B2), jeudi 5 novembre : groupe 2 de 8 h à 9 h, groupe 1 de 9 h à 10 h. Le code d'accès est donné en classe.",h:'https://sio-co-virtual-traffic.cemonprive.workers.dev',from:'2026-11-05T08:00:00+01:00'},
-{k:'test',t:'LinkWords n°2',d:"Évaluation en ligne sur les mots de liaison, lundi 9 novembre de 10 h à 10 h 45. Le code d'accès est donné en classe.",h:'https://sio-linkwords2.cemonprive.workers.dev',from:'2026-11-09T10:00:00+01:00'}].filter(x=>!x.from||Date.now()>=Date.parse(x.from));
+{k:'test',t:'LinkWords n°2',d:"Évaluation en ligne sur les mots de liaison, lundi 9 novembre de 10 h à 10 h 45. Le code d'accès est donné en classe.",h:'https://sio-linkwords2.cemonprive.workers.dev'}].filter(x=>!x.from||Date.now()>=Date.parse(x.from));
 const ALL=[...CR.map(x=>({...x,ct:'Compte rendu'})),...OR.map(x=>({...x,ct:'Épreuves orales'})),...VO.map(x=>({...x,ct:'Vocabulaire'})),...GK.map(x=>({...x,ct:'General Knowledge'})),...TE.map(x=>({...x,ct:'Tests'}))];
 const TABS=[['home','Accueil','home'],['cr','Compte rendu','ess'],['oral','Oral','pod'],['vocabulaire','Vocabulaire','voc'],['culture','Culture G','globe'],['tests','Tests','check']];
 const route=()=>(location.hash.slice(1)||'home').split('/');
