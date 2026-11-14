@@ -1,4 +1,4 @@
 {
- "version": "2026-11-14.2",
- "note": "Épreuves orales : chaque sujet s'ouvre directement, sans page intermédiaire."
+ "version": "2026-11-14.3",
+ "note": "Épreuves orales : le PDF s'ouvre dans l'application, avec un bouton « Fermer le PDF »."
 }
