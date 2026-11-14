@@ -132,6 +132,9 @@ main{padding:34px 40px 40px}
 .gridres{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 16px}
 }
 @media(max-width:380px){.tabs a{font-size:9.5px}main{padding-left:12px;padding-right:12px}}
+.backl{display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:600;color:var(--blue);margin-bottom:10px;min-height:32px}
+.pdfb,.pdfb:visited{display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:#fff!important;border-radius:30px;padding:11px 22px;font-weight:600;font-size:14.5px;margin-top:16px;box-shadow:var(--shadow)}
+.vbox{position:relative;width:100%;max-width:860px;aspect-ratio:16/9;margin-top:16px;border-radius:12px;overflow:hidden;background:var(--navy-deep);border:1px solid var(--border);box-shadow:var(--shadow-lg)}.vbox iframe,.vbox video{position:absolute;inset:0;width:100%;height:100%;border:0}
 </style>
 <script src="assets/app-nav.js"></script>
 </head>
@@ -169,10 +172,10 @@ const CR=[
 {k:'cr',t:"UK's 'anxious generation'…",d:"Entraînement guidé en 6 étapes, The Guardian, mai 2026.",h:'anxious-generation-compte-rendu.html'},
 {k:'cr',t:'"Less stress, more energy"…',d:"Entraînement guidé en 5 étapes, The Sunday Times.",h:'compte-rendu-pas-a-pas.html'}];
 const OR=[
-{k:'oral',t:'Green Computing',h:'oraux-bts-sio.html'},
-{k:'oral',t:'Cloud computing',h:'oraux-bts-sio.html'},
-{k:'oral',t:'Risks of AI at work',h:'oraux-bts-sio.html'},
-{k:'oral',t:'AI and the job market',h:'oraux-bts-sio.html'}];
+{k:'oral',id:'green-computing',t:'Green Computing',pdf:'assets/oraux/green-computing.pdf',emb:'https://tube-langues-vivantes.apps.education.fr/videos/embed/rMaLevvnwRFimdg8xHPghF'},
+{k:'oral',id:'cloud-computing',t:'Cloud computing',pdf:'assets/oraux/cloud-computing.pdf',emb:'https://tube-langues-vivantes.apps.education.fr/videos/embed/naVZQvkqhtis6px42Pq7Wo'},
+{k:'oral',id:'risks-of-ai-at-work',t:'Risks of AI at work',pdf:'assets/oraux/risks-of-ai-at-work.pdf',mp4:'assets/oraux/impacts-of-ai-workplace.mp4'},
+{k:'oral',id:'ai-and-the-job-market',t:'AI and the job market',pdf:'assets/oraux/ai-job-market.pdf',mp4:'assets/oraux/ai-job-market.mp4'}].map(x=>({...x,h:'#oral/'+x.id}));
 const VO=[
 {k:'voc',t:'Business English',d:'Vocabulaire du recrutement.',h:'business-english-vocabulaire-sio.html'},
 {k:'voc',t:'Business English 2',d:'Monde du travail : bien-être, diversité, flexibilité.',h:'business-english-2-vocabulaire-sio.html'},
@@ -199,7 +202,8 @@ ${block('cr','Le CR pas à pas','3 fiches',CR)}${block('oral','Épreuves orales'
 <a class="tile" href="#culture"><span class="ic">${ic('globe')}</span><b>General Knowledge</b></a>
 <a class="tile" href="https://1cours1bot.fr" target="_blank" rel="noopener"><span class="ic bot"><img src="assets/1cours1bot-logo.png" alt=""></span><b>1cours1bot</b></a></div>`},
 cr(){return `<h1>Le CR pas à pas</h1><p class="lead">Entraînements guidés pour rédiger en français le compte rendu d'un article de presse anglais.</p><div class="res" style="margin-top:16px">${CR.map(row).join('')}</div>`},
-oral(){return `<h1>Épreuves orales</h1><p class="lead">Sujets d'entraînement à l'oral : un support PDF et une vidéo pour chaque entraînement.</p><div class="res" style="margin-top:16px">${OR.map(row).join('')}</div>`},
+oral(){const o=OR.find(x=>x.id===route()[1]);if(o)return `<a class="backl" href="#oral">${ic('left',16,2.4)}Épreuves orales</a><h1>${o.t}</h1><p class="lead">Entraînement à l'oral : le support PDF et la vidéo.</p><a class="pdfb" href="${o.pdf}" target="_blank" rel="noopener">${ic('read',18)}Consulter le PDF</a><div class="vbox">${o.emb?`<iframe title="${o.t}" src="${o.emb}" allow="fullscreen" allowfullscreen sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>`:`<video src="${o.mp4}" controls playsinline preload="metadata"></video>`}</div>`;
+return `<h1>Épreuves orales</h1><p class="lead">Sujets d'entraînement à l'oral : un support PDF et une vidéo pour chaque entraînement.</p><div class="res" style="margin-top:16px">${OR.map(row).join('')}</div>`},
 vocabulaire(){return `<h1>Vocabulaire</h1><p class="lead">Flashcards, QCM en contexte et phrases à compléter.</p><div class="res" style="margin-top:16px">${VO.map(row).join('')}</div>`},
 culture(){const gs=[...new Set(GK.map(x=>x.g))];return `<h1>General Knowledge</h1>${gs.map(g=>`<div class="sec"><h2>${g}</h2></div><div class="res gridres">${GK.filter(x=>x.g===g).map(row).join('')}</div>`).join('')}`},
 tests(){return `<h1>Tests</h1><p class="lead">Évaluations et entraînements en ligne.</p>`+(TE.length?`<div class="res" style="margin-top:16px">${TE.map(row).join('')}</div>`:`<p class="empty">Cette rubrique sera bientôt alimentée.</p>`)},
