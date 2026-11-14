@@ -169,6 +169,7 @@ const CR=[
 {k:'cr',t:"UK's 'anxious generation'…",d:"Entraînement guidé en 6 étapes, The Guardian, mai 2026.",h:'anxious-generation-compte-rendu.html'},
 {k:'cr',t:'"Less stress, more energy"…',d:"Entraînement guidé en 5 étapes, The Sunday Times.",h:'compte-rendu-pas-a-pas.html'}];
 const OR=[
+{k:'oral',t:'Green Computing',h:'oraux-bts-sio.html'},
 {k:'oral',t:'Cloud computing',h:'oraux-bts-sio.html'},
 {k:'oral',t:'Risks of AI at work',h:'oraux-bts-sio.html'},
 {k:'oral',t:'AI and the job market',h:'oraux-bts-sio.html'}];
@@ -193,7 +194,7 @@ const foot=`<footer class="foot"><img class="l" src="assets/lsa-logo.png" alt="L
 const V={
 home(){let l=null;try{l=JSON.parse(localStorage.getItem('sio-last'))}catch(_){}
 return `<section class="hello"><h1>BTS SIO <span>Toolbox</span></h1>${l?`<a class="resume" href="${l.h}"><span class="g"><small>Reprendre</small><b>${l.t}</b></span>${ic('play',20,2.4)}</a>`:''}</section>
-${block('cr','Le CR pas à pas','3 fiches',CR)}${block('oral','Épreuves orales','3 sujets',OR)}${block('vocabulaire','Vocabulaire','3 fiches',VO)}
+${block('cr','Le CR pas à pas','3 fiches',CR)}${block('oral','Épreuves orales','4 sujets',OR)}${block('vocabulaire','Vocabulaire','3 fiches',VO)}
 <div class="sec"><h2>Aussi</h2></div><div class="tiles">
 <a class="tile" href="#culture"><span class="ic">${ic('globe')}</span><b>General Knowledge</b></a>
 <a class="tile" href="https://1cours1bot.fr" target="_blank" rel="noopener"><span class="ic bot"><img src="assets/1cours1bot-logo.png" alt=""></span><b>1cours1bot</b></a></div>`},
