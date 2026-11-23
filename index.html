@@ -187,7 +187,8 @@ const GK=[
 {g:'Podcasts',k:'pod',t:'Fifty States',h:'general-knowledge-sio.html#fifty-states'},
 {g:'Articles',k:'art',t:'Midterms 2026: Democrats Take Control of Congress',h:'midterms-2026.html'}];
 /* Rubrique Tests : à alimenter. Format : {k:'test',t:'Titre',d:'Description',h:'page.html',from:'2026-11-02T09:45:00+01:00'} ; « from » (facultatif) = date d'apparition. */
-const TE=[].filter(x=>!x.from||Date.now()>=Date.parse(x.from));
+const TE=[
+{k:'test',t:'Les temps',d:"Test de grammaire (formes affirmatives et négatives), lundi 30 novembre de 10 h 06 à 11 h 36. Le code d'accès est donné en classe.",h:'https://sio-temps-1.cemonprive.workers.dev',from:'2026-11-30T10:05:00+01:00'}].filter(x=>!x.from||Date.now()>=Date.parse(x.from));
 const ALL=[...CR.map(x=>({...x,ct:'Compte rendu'})),...OR.map(x=>({...x,ct:'Épreuves orales'})),...VO.map(x=>({...x,ct:'Vocabulaire'})),...GK.map(x=>({...x,ct:'General Knowledge'})),...TE.map(x=>({...x,ct:'Tests'}))];
 const TABS=[['home','Accueil','home'],['cr','Compte rendu','ess'],['oral','Oral','pod'],['vocabulaire','Vocabulaire','voc'],['culture','Culture G','globe'],['tests','Tests','check']];
 const route=()=>(location.hash.slice(1)||'home').split('/');
